@@ -68,6 +68,10 @@ npm run build
 
 This application uses the following:
 
+[@apollo/server](https://www.npmjs.com/package/@apollo/server) Apollo Server is an open-source, spec-compliant GraphQL server that's compatible with any GraphQL client, including Apollo Client
+
+[graphql](https://www.npmjs.com/package/graphql) GraphQL.js is a general-purpose library and can be used both in a Node server and in the browser
+
 [@testing-library/jest-dom](https://www.npmjs.com/package/@testing-library/jest-dom) custom jest matchers to test the state of the DOM
 
 [@testing-library/react](https://www.npmjs.com/package/@testing-library/react) a simple and complete React DOM testing utilities that encourage good testing practices
