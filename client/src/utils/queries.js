@@ -1,3 +1,5 @@
+import { gql } from '@apollo/client';
+
 export const getMe = (token) => {
     fetch( '/graphql', {
         method: 'POST',
