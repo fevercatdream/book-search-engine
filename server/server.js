@@ -22,20 +22,21 @@ app.use(express.json());
 
 // you must call 'start()' on the 'ApolloServer'
 // instance before passing the instance to 'expressMiddleware'
-await server.start();
+server.start()
+  .then( () => {
+    // the path where you mount the server
+    app.use('/graphql', cors(), json(), expressMiddleware(server, {
+      context: authMiddleware,
+    }));
+    
+    // if we're in production, serve client/build as static assets
+    if (process.env.NODE_ENV === 'production') {
+      app.use(express.static(path.join(__dirname, '../client/build')));
+    }
 
-// the path where you mount the server
-app.use('/graphql', cors(), json(), authMiddleware(), expressMiddleware(server, {
-  context: async ({ req }) => ({ user: req.user })
-}));
+    app.use(routes);
 
-// if we're in production, serve client/build as static assets
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
-}
-
-app.use(routes);
-
-db.once('open', () => {
-  app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
-});
+    db.once('open', () => {
+      app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
+    });
+  });

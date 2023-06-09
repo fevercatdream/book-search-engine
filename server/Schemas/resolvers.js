@@ -4,12 +4,15 @@ const { signToken } = require('../utils/auth');
 module.exports.resolvers = {
     Query: {
         me: async (root, args, context, info) => {
-            const user = context.user;
-            const foundUser = await User.findOne({
-                 _id: user._id
-              });
-          
-            return foundUser;
+            if (context.user) {
+                const user = context.user;
+                const foundUser = await User.findOne({
+                    _id: user._id
+                });
+            
+                return foundUser;
+            }
+            throw new AuthenticationError('You need to be logged in!');
         }
     },
     Mutation: {
@@ -42,29 +45,35 @@ module.exports.resolvers = {
 
         },
         saveBook: async (root, args, context, info) => {
-            const authors = args.authors;
-            const description = args.description;
-            const title = args.title;
-            const bookId = args.bookId;
-            const image = args.image;
-            const link = args.link;
-            const user = context.user;
-            const updatedUser = await User.findOneAndUpdate(
-                { _id: user._id },
-                { $addToSet: { savedBooks: { authors, description, title, bookId, image, link } } },
-                { new: true, runValidators: true }
-              );       
-            return updatedUser;     
+            if (context.user) {
+                const authors = args.authors;
+                const description = args.description;
+                const title = args.title;
+                const bookId = args.bookId;
+                const image = args.image;
+                const link = args.link;
+                const user = context.user;
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: user._id },
+                    { $addToSet: { savedBooks: { authors, description, title, bookId, image, link } } },
+                    { new: true, runValidators: true }
+                );       
+                return updatedUser;  
+            }
+            throw new AuthenticationError('You need to be logged in!');   
         },
         removeBook: async (root, args, context, info) => {
-            const bookId = args.bookId;
-            const user = context.user;
-            const updatedUser = await User.findOneAndUpdate(
-                { _id: user._id },
-                { $pull: { savedBooks: { bookId } } },
-                { new: true }
-              );
-            return updatedUser;
+            if(context.user) {
+                const bookId = args.bookId;
+                const user = context.user;
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: user._id },
+                    { $pull: { savedBooks: { bookId } } },
+                    { new: true }
+                );
+                return updatedUser;
+            }
+            throw new AuthenticationError('You need to be logged in!');
         },
     }
 }
