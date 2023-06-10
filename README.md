@@ -64,13 +64,41 @@ Use the following command to install the necessary packages
 npm install (package_name@version)
 
 npm run build
+
+npm run develop
 ```
 
 This application uses the following:
 
+### Root package.json
+
+[concurrently](https://www.npmjs.com/package/concurrently) run multiple commands concurrently
+<br />
+
+### server package.json
+
 [@apollo/server](https://www.npmjs.com/package/@apollo/server) Apollo Server is an open-source, spec-compliant GraphQL server that's compatible with any GraphQL client, including Apollo Client
 
+[bcrypt](https://www.npmjs.com/package/bcrypt) as a library to help you hash passwords
+
+[body-parser]()
+
+[cors](https://www.npmjs.com/package/cors) CORS is a node.js package for providing a Connect / Express middleware that can be used to enable CORS with various options
+
+[Express](https://www.npmjs.com/package/express/v/4.16.4) as a node js web application framework
+
 [graphql](https://www.npmjs.com/package/graphql) GraphQL.js is a general-purpose library and can be used both in a Node server and in the browser
+
+[graphql-tag]()
+
+[jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) JSON Web Token implementation (symmetric and asymmetric)
+
+[Mongoose](https://www.npmjs.com/package/mongoose) Mongoose is an Object Data Modeling (ODM) library for MongoDB, supports Node.js.
+<br />
+
+### client package.json
+
+[@apollo/client]()
 
 [@testing-library/jest-dom](https://www.npmjs.com/package/@testing-library/jest-dom) custom jest matchers to test the state of the DOM
 
@@ -80,18 +108,20 @@ This application uses the following:
 
 [bootstrap](https://www.npmjs.com/package/bootstrap) the most popular front-end framework for developing responsive, mobile first projects on the web
 
-[concurrently](https://www.npmjs.com/package/concurrently) run multiple commands concurrently
+[graphql](https://www.npmjs.com/package/graphql) GraphQL.js is a general-purpose library and can be used both in a Node server and in the browser
+
+[jwt-decode]()
 
 [react](https://www.npmjs.com/package/react) React is a JavaScript library for building user interfaces
+
+[react-bootstrap](https://www.npmjs.com/package/react-bootstrap) Bootstrap 4 components built with React
 
 [react-dom](https://www.npmjs.com/package/react-dom) React package for working with the DOM
 
 [react-router-dom](https://www.npmjs.com/package/react-router-dom) declarative routing for React web applications
 
 [react-scripts](https://www.npmjs.com/package/react-scripts) configuration and scripts for Create React App
-
-[web-vitals](https://www.npmjs.com/package/web-vitals) easily measure performance metrics in JavaScript
-
+<br />
 
 ## Usage
 
