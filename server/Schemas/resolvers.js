@@ -1,5 +1,6 @@
 const gql = require('graphql-tag');
 const { signToken } = require('../utils/auth');
+const { User } = require('../models');
 
 module.exports.resolvers = {
     Query: {
@@ -12,7 +13,7 @@ module.exports.resolvers = {
             
                 return foundUser;
             }
-            throw new AuthenticationError('You need to be logged in!');
+            throw new Error('You need to be logged in!');
         }
     },
     Mutation: {
@@ -22,10 +23,10 @@ module.exports.resolvers = {
             const foundUser = await User.findOne({
                 email: email
             });
-            const correctPw = await user.isCorrectPassword(password);
+            const correctPw = await foundUser.isCorrectPassword(password);
             if (foundUser === null || !correctPw)
                 return null;
-            const token = signToken(user);
+            const token = signToken(foundUser);
             return {token, user: foundUser};
         },
         addUser: async (root, args, context, info) => {
@@ -60,7 +61,7 @@ module.exports.resolvers = {
                 );       
                 return updatedUser;  
             }
-            throw new AuthenticationError('You need to be logged in!');   
+            throw new Error('You need to be logged in!');   
         },
         removeBook: async (root, args, context, info) => {
             if(context.user) {
@@ -73,7 +74,7 @@ module.exports.resolvers = {
                 );
                 return updatedUser;
             }
-            throw new AuthenticationError('You need to be logged in!');
+            throw new Error('You need to be logged in!');
         },
     }
 }
