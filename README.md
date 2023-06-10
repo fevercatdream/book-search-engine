@@ -81,7 +81,7 @@ This application uses the following:
 
 [bcrypt](https://www.npmjs.com/package/bcrypt) as a library to help you hash passwords
 
-[body-parser]()
+[body-parser](https://www.npmjs.com/package/body-parser) Node.js body parsing middleware, parse incoming request bodies in a middleware before your handlers, available under the req.body property
 
 [cors](https://www.npmjs.com/package/cors) CORS is a node.js package for providing a Connect / Express middleware that can be used to enable CORS with various options
 
@@ -89,7 +89,7 @@ This application uses the following:
 
 [graphql](https://www.npmjs.com/package/graphql) GraphQL.js is a general-purpose library and can be used both in a Node server and in the browser
 
-[graphql-tag]()
+[graphql-tag](https://www.npmjs.com/package/graphql-tag) a JavaScript template literal tag that parses GraphQL queries
 
 [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) JSON Web Token implementation (symmetric and asymmetric)
 
@@ -98,7 +98,7 @@ This application uses the following:
 
 ### client package.json
 
-[@apollo/client]()
+[@apollo/client](https://www.npmjs.com/package/@apollo/client) a fully-featured caching GraphQL client, Apollo Client is a state management library that simplifies managing remote and local data with GraphQL
 
 [@testing-library/jest-dom](https://www.npmjs.com/package/@testing-library/jest-dom) custom jest matchers to test the state of the DOM
 
@@ -110,7 +110,7 @@ This application uses the following:
 
 [graphql](https://www.npmjs.com/package/graphql) GraphQL.js is a general-purpose library and can be used both in a Node server and in the browser
 
-[jwt-decode]()
+[jwt-decode](https://www.npmjs.com/package/jwt-decode) decode JWT tokens, mostly useful for browser applications
 
 [react](https://www.npmjs.com/package/react) React is a JavaScript library for building user interfaces
 
@@ -149,9 +149,13 @@ shields.io: https://shields.io/
 
 Get started with Apollo Server: https://www.apollographql.com/docs/apollo-server/getting-started/
 
+Get started with Apollo Client: https://www.apollographql.com/docs/react/get-started/
+
 Bootstrap docs: https://getbootstrap.com/
 
 DOM Elements: https://legacy.reactjs.org/docs/dom-elements.html#style
+
+How to Deploy MongoDB on Heroku: https://www.mongodb.com/developer/products/atlas/use-atlas-on-heroku/
 
 solid-broccoli for starter code: https://github.com/coding-boot-camp/solid-broccoli
 
