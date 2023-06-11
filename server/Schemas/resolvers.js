@@ -47,12 +47,12 @@ module.exports.resolvers = {
         },
         saveBook: async (root, args, context, info) => {
             if (context.user) {
-                const authors = args.authors;
-                const description = args.description;
-                const title = args.title;
-                const bookId = args.bookId;
-                const image = args.image;
-                const link = args.link;
+                const authors = args.input.authors;
+                const description = args.input.description;
+                const title = args.input.title;
+                const bookId = args.input.bookId;
+                const image = args.input.image;
+                const link = args.input.link;
                 const user = context.user;
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: user._id },
